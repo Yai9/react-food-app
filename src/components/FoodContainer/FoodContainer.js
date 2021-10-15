@@ -17,7 +17,7 @@ const FoodContainer = props => {
                     Featured Food
                 </h1>
                 <div className="py-2 bg-green-900 shadow-lg rounded-md my-2 px-3 text-center text-xl">
-                    <p className="text-white mx-auto italic">
+                    <p className="text-white mx-auto italic font-light">
                         Welcome!<br/> 
 	    		Enjoy your shopping knowing we only use 100%
                         organic and fresh ingredients to make your food

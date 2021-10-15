@@ -19,7 +19,7 @@ const Header = props => {
                             className="text-white text-xl font-semibold"
                         />
                     </a>
-                    <div className="flex h-12 w-32 bg-green-600 rounded-full justify-center ">
+                    <div className="flex h-12 w-32 bg-green-600 rounded-full justify-center  hover:bg-green-800 transition ease-in duration-500">
                         <img
                             src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart-promotion.png"
                             className="w-12 h-12 cursor-pointer"
