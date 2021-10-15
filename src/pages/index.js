@@ -6,10 +6,10 @@ import FoodContainer from '../components/FoodContainer/FoodContainer.js'
 import Cart from '../components/Cart/Cart.js'
 
 const App = () => {
-	const [cartVisible, setVisibility] = useState(false)
-    
-	const ctx = useContext(FoodContext)
-	const foodArray = [
+    const [cartVisible, setVisibility] = useState(false)
+
+    const ctx = useContext(FoodContext)
+    const foodArray = [
         {
             id: '1',
             name: 'Green Bowl',
@@ -30,20 +30,24 @@ const App = () => {
             price: 11.99
         }
     ]
-	const showCartHandler = () => {
-		setVisibility(prevState=>!prevState)
-	}
+    const showCartHandler = () => {
+        setVisibility(prevState => !prevState)
+    }
 
-	const closeModalHandler = () => {
-		setVisibility(false)
-	}
+    const closeModalHandler = () => {
+        setVisibility(false)
+    }
 
     return (
         <Fragment>
             <FoodContextProvider>
-                <Header foodArray={ctx.foodItem} onCartShow={showCartHandler}/>
-                <div className="text-red-500">
-                    <FoodContainer foodArray={foodArray} visibility={cartVisible} closeModal={closeModalHandler}/>
+                <Header foodArray={ctx.foodItem} onCartShow={showCartHandler} />
+                <div className="absolute inset-52">
+                    <FoodContainer
+                        foodArray={foodArray}
+                        visibility={cartVisible}
+                        closeModal={closeModalHandler}
+                    />
                 </div>
             </FoodContextProvider>
         </Fragment>

@@ -26,7 +26,7 @@ const FoodItem = props => {
     }
 
     return (
-        <div className="flex justify-between items-center border-b-2 border-gray-400">
+        <div className="flex justify-between items-center ">
             <div>
                 <h2 className="text-white">{props.name}</h2>
                 <p className="text-gray-100 text-xl">{props.desc}</p>
@@ -36,13 +36,13 @@ const FoodItem = props => {
                 <input
                     type="number"
                     ref={amountRef}
-                    className="rounded-md mx-3"
+                    className="rounded-md mx-3 text-center text-black"
                     defaultValue="1"
                     min="1"
                     max="10"
                 />
                 <button
-                    className="px-3 bg-red-600 rounded-md text-white h-full"
+                    className="px-3 bg-red-600 hover:bg-red-800 transition ease-out duration-500 rounded-md text-white h-full"
                     onClick={addFoodItemHandler}
                 >
                     Add to Cart
