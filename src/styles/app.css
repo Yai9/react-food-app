@@ -1,7 +1,7 @@
 @tailwind base;
 
 :root {
-    --font-mono:  "Arial, sans-serif";
+    --font-mono: @apply font-sans;
     --primary-color: #fafafa;
     --pure-white: #fafafa;
     --secondary-color: #fafafa;

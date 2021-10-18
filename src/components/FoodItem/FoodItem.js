@@ -29,8 +29,8 @@ const FoodItem = props => {
         <div className="flex justify-between items-center ">
             <div>
                 <h2 className="text-white">{props.name}</h2>
-                <p className="text-gray-100 text-xl">{props.desc}</p>
-                <span className="text-red-500 text-xl">{props.price} $</span>
+                <p className="text-gray-100 text-xl mb-2">{props.desc}</p>
+                <span className="text-red-500 text-xl bg-white rounded-md p-1 font-bold">{props.price} $</span>
             </div>
             <div className="">
                 <input

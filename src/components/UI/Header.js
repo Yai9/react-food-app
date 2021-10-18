@@ -11,7 +11,7 @@ const Header = props => {
     return (
         <Fragment>
             <div className="overflow-hidden">
-                <header className="fixed top-0 left-0 w-full h-16 bg-green-700 text-white flex justify-between px-10 z-10 shadow-md items-center">
+                <header className="fixed top-0 left-0 w-full h-16 bg-purple-500 text-white flex justify-between px-10 z-10 shadow-md items-center">
                     <a href="/" className="w-52 cursor-pointer">
                         <img
                             src="pictures/Foodiverse.png"
@@ -19,13 +19,13 @@ const Header = props => {
                             className="text-white text-xl font-semibold"
                         />
                     </a>
-                    <div className="flex h-12 w-32 bg-green-600 rounded-full justify-center  hover:bg-green-800 transition ease-in duration-500">
+                    <div className="flex h-12 w-32 bg-purple-600 rounded-full justify-center  hover:bg-purple-800 transition ease-in duration-500">
                         <img
                             src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart-promotion.png"
                             className="w-12 h-12 cursor-pointer"
                             onClick={props.onCartShow}
                         />
-                        <div className="flex w-8 h-8 bg-green-800 rounded-full justify-center items-center my-auto">
+                        <div className="flex w-8 h-8 bg-purple-800 rounded-full justify-center items-center my-auto">
                             {itemAmount}
                         </div>
                     </div>

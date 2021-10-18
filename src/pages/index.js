@@ -42,7 +42,7 @@ const App = () => {
         <Fragment>
             <FoodContextProvider>
                 <Header foodArray={ctx.foodItem} onCartShow={showCartHandler} />
-                <div className="absolute inset-52">
+                <div className="absolute inset-44 ">
                     <FoodContainer
                         foodArray={foodArray}
                         visibility={cartVisible}

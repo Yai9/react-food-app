@@ -12,13 +12,13 @@ const FoodContainer = props => {
                     closeModal={props.closeModal}
                 />
             )}
-            <div className="max-w-screen-md m-auto bg-green-800 shadow-2xl py-6 px-6 rounded-md ">
-                <h1 className="text-center text-green-100 font-semibold border-b border-gray-200">
+            <div className="max-w-screen-lg m-auto bg-purple-600 shadow-2xl py-6 px-6 rounded-md tranform translate-y-6 ">
+                <h1 className="text-center text-purple-100 font-semibold border-b border-gray-200">
                     Featured Food
                 </h1>
-                <div className="py-2 bg-green-900 shadow-lg rounded-md my-2 px-3 text-center text-xl">
+                <div className="py-2 bg-purple-900 shadow-lg rounded-md my-2 px-3 text-center text-xl">
                     <p className="text-white mx-auto italic font-light">
-                        Welcome!<br/> 
+                        <span className="font-bold">Welcome!</span><br/> 
 	    		Enjoy your shopping knowing we only use 100%
                         organic and fresh ingredients to make your food
                         absolutely delicious and straight-from-oven served!
@@ -28,7 +28,7 @@ const FoodContainer = props => {
                     {props.foodArray.map(food => (
                         <li
                             key={food.id}
-                            className="py-2 bg-green-700 rounded-md my-2 px-3 shadow-md hover:bg-green-900 transition ease-out duration-1000"
+                            className="py-2 bg-purple-800 rounded-md my-3 px-3 shadow-md hover:bg-purple-900 transition ease-out duration-1000"
                         >
                             <FoodItem
                                 foodArray={props.foodArray}
