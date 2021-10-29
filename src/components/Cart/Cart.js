@@ -1,13 +1,21 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Modal from '../UI/Modal.js'
 import FoodContext from '../../context/FoodContext.js'
 
 const Cart = props => {
+	const [itemArray, setItem] = useState([])
+
     const ctx = useContext(FoodContext)
 
     const item = ctx.foodItem
 
     const totalPrice = ctx.totalPrice.toFixed(2)
+	
+	const removeCartItemHandler = (id) => {
+		ctx.removeItem(id)
+	
+	}
+
 
     return (
         <div>
@@ -32,11 +40,22 @@ const Cart = props => {
                                 <li
                                     key={i.id}
                                     className="border-b border-gray-300"
-                                >
+                                
+				    >
                                     <h3 className="font-semibold">{i.name}</h3>
                                     <p>{i.desc}</p>
+				    <div className="flex justify-between mb-2">
+				    <div>
                                     <span>{i.price} $</span>
-                                </li>
+				    </div>
+				    <div className="flex justify-between w-5/12">
+				    <input className="w-16 pointer-events-none" type="number" />
+				    <span>{i.amount}</span>
+				    <button className="px-2 rounded-md bg-green-500 text-white">+</button>
+				    <button className="px-2 rounded-md bg-red-500 text-white" onClick={()=>removeCartItemHandler(i.id)}>-</button>
+				    </div>
+				    </div>
+				    </li>
                             ))}
                         </ul>
                         <p className="mx-auto text-center w-9/12 bg-gray-100 py-2 px-2 my-3 text-lg font-bold rounded-md">

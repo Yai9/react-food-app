@@ -34,6 +34,44 @@ const foodItemReducer = (state, action) => {
         }
     }
 
+	if(action.type === 'REMOVE_ITEM'){
+        
+	const itemExists = state.foodItem.findIndex(
+            i => i.id === action.id
+        )
+        const existingItem = state.foodItem[itemExists]
+
+        let updatedItems
+	let updatedItem
+
+		if(existingItem.amount <= 1){
+		        const updatedPrice = state.totalPrice - existingItem.price * 1
+			updatedItems = state.foodItem.filter(item=>item.id !== existingItem.id)
+			return{
+				foodItem:updatedItems,
+				totalPrice:updatedPrice
+			}
+		}
+		else if (existingItem) {
+            updatedItem = {
+                ...existingItem,
+                amount: existingItem.amount - 1
+            }
+            updatedItems = [...state.foodItem]
+            updatedItems[itemExists] = updatedItem
+		console.log(updatedItems,'updatedItems')
+        }
+
+        const updatedPrice =
+            state.totalPrice - updatedItem.price * 1
+		
+        return {
+            foodItem: updatedItems,
+            totalPrice: updatedPrice
+        }
+
+	}
+
     return initialState
 }
 
