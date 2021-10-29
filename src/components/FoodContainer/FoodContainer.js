@@ -12,8 +12,8 @@ const FoodContainer = props => {
                     closeModal={props.closeModal}
                 />
             )}
-            <div className="max-w-screen-lg m-auto bg-purple-600 shadow-2xl py-6 px-6 rounded-md tranform translate-y-6 ">
-                <h1 className="text-center text-purple-100 font-semibold border-b border-gray-200">
+            <div className="max-w-screen-lg m-auto bg-purple-500 shadow-2xl py-6 px-6 rounded-md tranform translate-y-6 ">
+                <h1 className="text-center text-white font-semibold border-b border-gray-200">
                     Featured Food
                 </h1>
                 <div className="py-2 bg-purple-900 shadow-lg rounded-md my-2 px-3 text-center text-xl">
