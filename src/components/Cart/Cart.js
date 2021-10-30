@@ -10,6 +10,10 @@ const Cart = props => {
     const item = ctx.foodItem
 
     const totalPrice = ctx.totalPrice.toFixed(2)
+
+	const increaseAmountHandler = (id) => {
+		ctx.increaseAmount(id)
+	}
 	
 	const removeCartItemHandler = (id) => {
 		ctx.removeItem(id)
@@ -51,7 +55,7 @@ const Cart = props => {
 				    <div className="flex justify-between w-5/12">
 				    <input className="w-16 pointer-events-none" type="number" />
 				    <span>{i.amount}</span>
-				    <button className="px-2 rounded-md bg-green-500 text-white">+</button>
+				    <button className="px-2 rounded-md bg-green-500 text-white" onClick={()=>increaseAmountHandler(i.id)}>+</button>
 				    <button className="px-2 rounded-md bg-red-500 text-white" onClick={()=>removeCartItemHandler(i.id)}>-</button>
 				    </div>
 				    </div>

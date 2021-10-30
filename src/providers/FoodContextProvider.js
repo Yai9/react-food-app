@@ -34,12 +34,36 @@ const foodItemReducer = (state, action) => {
         }
     }
 
-	if(action.type === 'REMOVE_ITEM'){
-        
+	if(action.type === 'INCREASE_AMOUNT'){
 	const itemExists = state.foodItem.findIndex(
             i => i.id === action.id
         )
-        const existingItem = state.foodItem[itemExists]
+        
+	const existingItem = state.foodItem[itemExists]
+        let updatedItems
+	let updatedItem
+		if(existingItem){
+			updatedItem = {
+				...existingItem,
+				amount: existingItem.amount + 1
+			}
+			updatedItems = [...state.foodItem]
+			updatedItems[itemExists] = updatedItem
+			const updatedPrice = state.totalPrice + existingItem.price * 1
+			return{
+				foodItem: updatedItems,
+				totalPrice: updatedPrice
+
+			}
+		}
+	}
+
+	if(action.type === 'REMOVE_ITEM'){
+	const itemExists = state.foodItem.findIndex(
+            i => i.id === action.id
+        )
+        
+	const existingItem = state.foodItem[itemExists]
 
         let updatedItems
 	let updatedItem
@@ -81,6 +105,10 @@ const FoodContextProvider = props => {
     const addCartItemHandler = item => {
         dispatch({ type: 'ADD_ITEM', foodItem: item })
     }
+    
+	const increaseAmountHandler = (id) => {
+        dispatch({ type: 'INCREASE_AMOUNT', id:id})
+    }
 
     const removeCartItemHandler = id => {
         dispatch({ type: 'REMOVE_ITEM', id: id })
@@ -90,6 +118,7 @@ const FoodContextProvider = props => {
         foodItem: foodState.foodItem,
         totalPrice: foodState.totalPrice,
         addItem: addCartItemHandler,
+	increaseAmount: increaseAmountHandler,
         removeItem: removeCartItemHandler
     }
 
