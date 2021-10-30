@@ -34,67 +34,61 @@ const foodItemReducer = (state, action) => {
         }
     }
 
-	if(action.type === 'INCREASE_AMOUNT'){
-	const itemExists = state.foodItem.findIndex(
-            i => i.id === action.id
-        )
-        
-	const existingItem = state.foodItem[itemExists]
+    if (action.type === 'INCREASE_AMOUNT') {
+        const itemExists = state.foodItem.findIndex(i => i.id === action.id)
+
+        const existingItem = state.foodItem[itemExists]
         let updatedItems
-	let updatedItem
-		if(existingItem){
-			updatedItem = {
-				...existingItem,
-				amount: existingItem.amount + 1
-			}
-			updatedItems = [...state.foodItem]
-			updatedItems[itemExists] = updatedItem
-			const updatedPrice = state.totalPrice + existingItem.price * 1
-			return{
-				foodItem: updatedItems,
-				totalPrice: updatedPrice
+        let updatedItem
+        if (existingItem) {
+            updatedItem = {
+                ...existingItem,
+                amount: existingItem.amount + 1
+            }
+            updatedItems = [...state.foodItem]
+            updatedItems[itemExists] = updatedItem
+            const updatedPrice = state.totalPrice + existingItem.price * 1
+            return {
+                foodItem: updatedItems,
+                totalPrice: updatedPrice
+            }
+        }
+    }
 
-			}
-		}
-	}
+    if (action.type === 'REMOVE_ITEM') {
+        const itemExists = state.foodItem.findIndex(i => i.id === action.id)
 
-	if(action.type === 'REMOVE_ITEM'){
-	const itemExists = state.foodItem.findIndex(
-            i => i.id === action.id
-        )
-        
-	const existingItem = state.foodItem[itemExists]
+        const existingItem = state.foodItem[itemExists]
 
         let updatedItems
-	let updatedItem
+        let updatedItem
 
-		if(existingItem.amount <= 1){
-		        const updatedPrice = state.totalPrice - existingItem.price * 1
-			updatedItems = state.foodItem.filter(item=>item.id !== existingItem.id)
-			return{
-				foodItem:updatedItems,
-				totalPrice:updatedPrice
-			}
-		}
-		else if (existingItem) {
+        if (existingItem.amount <= 1) {
+            const updatedPrice = state.totalPrice - existingItem.price * 1
+            updatedItems = state.foodItem.filter(
+                item => item.id !== existingItem.id
+            )
+            return {
+                foodItem: updatedItems,
+                totalPrice: updatedPrice
+            }
+        } else if (existingItem) {
             updatedItem = {
                 ...existingItem,
                 amount: existingItem.amount - 1
             }
             updatedItems = [...state.foodItem]
             updatedItems[itemExists] = updatedItem
-		console.log(updatedItems,'updatedItems')
+            console.log(updatedItems, 'updatedItems')
         }
 
-        const updatedPrice =
-            state.totalPrice - updatedItem.price * 1
-		
+        const updatedPrice = state.totalPrice - updatedItem.price * 1
+
         return {
             foodItem: updatedItems,
             totalPrice: updatedPrice
         }
-
-	}
+    }
 
     return initialState
 }
@@ -105,9 +99,9 @@ const FoodContextProvider = props => {
     const addCartItemHandler = item => {
         dispatch({ type: 'ADD_ITEM', foodItem: item })
     }
-    
-	const increaseAmountHandler = (id) => {
-        dispatch({ type: 'INCREASE_AMOUNT', id:id})
+
+    const increaseAmountHandler = id => {
+        dispatch({ type: 'INCREASE_AMOUNT', id: id })
     }
 
     const removeCartItemHandler = id => {
@@ -118,7 +112,7 @@ const FoodContextProvider = props => {
         foodItem: foodState.foodItem,
         totalPrice: foodState.totalPrice,
         addItem: addCartItemHandler,
-	increaseAmount: increaseAmountHandler,
+        increaseAmount: increaseAmountHandler,
         removeItem: removeCartItemHandler
     }
 

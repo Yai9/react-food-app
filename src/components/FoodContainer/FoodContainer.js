@@ -18,10 +18,11 @@ const FoodContainer = props => {
                 </h1>
                 <div className="py-2 bg-purple-900 shadow-lg rounded-md my-2 px-3 text-center text-xl">
                     <p className="text-white mx-auto italic font-light">
-                        <span className="font-bold">Welcome!</span><br/> 
-	    		Enjoy your shopping knowing we only use 100%
-                        organic and fresh ingredients to make your food
-                        absolutely delicious and straight-from-oven served!
+                        <span className="font-bold">Welcome!</span>
+                        <br />
+                        Enjoy your shopping knowing we only use 100% organic and
+                        fresh ingredients to make your food absolutely delicious
+                        and straight-from-oven served!
                     </p>
                 </div>
                 <ul className="list-none p-0 m-0">

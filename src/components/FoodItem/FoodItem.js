@@ -30,7 +30,9 @@ const FoodItem = props => {
             <div>
                 <h3 className="text-white font-bold">{props.name}</h3>
                 <p className="text-gray-100 text-lg mb-2">{props.desc}</p>
-                <span className="text-red-500 text-lg bg-white rounded-md p-1 font-bold">{props.price} $</span>
+                <span className="text-red-500 text-lg bg-white rounded-md p-1 font-bold">
+                    {props.price} $
+                </span>
             </div>
             <div className="">
                 <input
