@@ -17,6 +17,18 @@ const Cart = props => {
         ctx.removeItem(id)
     }
 
+    const sendRequestHandler = async () => {
+        const response = await fetch(
+            'https://react-food-app-53f42-default-rtdb.europe-west1.firebasedatabase.app/orders.json',
+            {
+                method: 'POST',
+                body: JSON.stringify(ctx.foodItem)
+            }
+        )
+        console.log(response, 'response')
+        window.location.pathname = '/orders'
+    }
+
     return (
         <div>
             <Modal>
@@ -84,7 +96,10 @@ const Cart = props => {
                             >
                                 Close
                             </button>
-                            <button className="py-2 px-2 mr-1 rounded-md bg-green-500 hover:bg-green-700 transition ease-out duration-500 text-white">
+                            <button
+                                className="py-2 px-2 mr-1 rounded-md bg-green-500 hover:bg-green-700 transition ease-out duration-500 text-white"
+                                onClick={sendRequestHandler}
+                            >
                                 Order
                             </button>
                         </div>

@@ -1,4 +1,5 @@
 import React, { useContext, useState, Fragment } from 'react'
+import Link from 'next/link'
 import FoodContext from '../../context/FoodContext.js'
 import 'tailwindcss/tailwind.css'
 
@@ -19,14 +20,21 @@ const Header = props => {
                             className="text-white text-xl font-semibold"
                         />
                     </a>
-                    <div className="flex h-12 w-32 bg-purple-600 rounded-full justify-center  hover:bg-purple-800 transition ease-in duration-500">
-                        <img
-                            src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart-promotion.png"
-                            className="w-12 h-12 cursor-pointer"
-                            onClick={props.onCartShow}
-                        />
-                        <div className="flex w-8 h-8 bg-purple-800 rounded-full justify-center items-center my-auto">
-                            {itemAmount}
+                    <div className="flex items-center h-full">
+                        <div className="flex items-center mr-10 text-xl no-underline px-6 h-full hover:bg-purple-600 transition ease-in duration-500">
+                            <Link href="/orders">
+                             <a className="hover:no-underline">My Orders</a>
+                            </Link>
+                        </div>
+                        <div className="flex h-12 w-32 bg-purple-600 rounded-full justify-center  hover:bg-purple-800 transition ease-in duration-500">
+                            <img
+                                src="https://img.icons8.com/carbon-copy/100/000000/shopping-cart-promotion.png"
+                                className="w-12 h-12 cursor-pointer"
+                                onClick={props.onCartShow}
+                            />
+                            <div className="flex w-8 h-8 bg-purple-800 rounded-full justify-center items-center my-auto">
+                                {itemAmount}
+                            </div>
                         </div>
                     </div>
                 </header>

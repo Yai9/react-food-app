@@ -22,7 +22,7 @@ const App = () => {
             desc: 'Delicious quick meal with best quality meat served!',
             price: 9.99
         },
-        { id: '3', name: 'Carbonara plate', desc: 'Bellissimo!', price: 10.99 },
+        { id: '3', name: 'Carbonara plate', desc: 'Gustoso!', price: 10.99 },
         {
             id: '4',
             name: 'Vanilla Cherry Pancakes',
